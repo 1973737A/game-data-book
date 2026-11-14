@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { getSeriesGroups, seriesTheme } from "@/lib/posts";
+import { getSeriesGroups } from "@/lib/posts";
+import BookCard from "@/components/BookCard";
 
 export const metadata: Metadata = { title: "全部笔记" };
 
@@ -10,39 +11,27 @@ export default function ArticlesPage() {
 
   return (
     <div className="container">
-      <section className="hero" style={{ padding: "32px 0 8px", textAlign: "left" }}>
-        <h1 style={{ fontSize: 32 }}>全部笔记</h1>
-        <p style={{ margin: "10px 0 0" }}>
-          SQL 实战 · 指标体系 · 分析方法论，共 {total} 篇，持续更新。
+      <section style={{ padding: "28px 0 6px" }}>
+        <h1 style={{ fontSize: 24, fontWeight: 680, letterSpacing: "-0.3px" }}>全部笔记</h1>
+        <p style={{ margin: "10px 0 0", color: "var(--t2)", fontSize: 15 }}>
+          检索原理 · 知识组织 · 实战轨迹，共 {total} 篇，持续更新。
         </p>
       </section>
 
-      {groups.map((g) => {
-        const theme = seriesTheme(g.series);
-        return (
-          <div key={g.series} className="series-group">
-            <div className="series-head">
-              <span className="series-no">{g.series.slice(0, 2)}</span>
-              <h2>{g.series.slice(3)}</h2>
-              <span className="count">{g.posts.length} 篇</span>
-            </div>
-            <div className="series-list">
-              {g.posts.map((p) => (
-                <Link key={p.slug} href={`/articles/${p.slug}`} className="series-item">
-                  <span className="item-no" style={{ background: theme.gradient }}>
-                    {String(p.order).padStart(2, "0")}
-                  </span>
-                  <span className="item-main">
-                    <span className="item-title">{p.title}</span>
-                    <span className="item-desc">{p.description}</span>
-                  </span>
-                  <span className="item-date">{p.date}</span>
-                </Link>
-              ))}
-            </div>
+      {groups.map((g) => (
+        <section key={g.series} className="series-group">
+          <div className="series-head">
+            <span className="series-no">{g.series.slice(0, 2)}</span>
+            <h2>{g.series.slice(3)}</h2>
+            <span className="count">{g.posts.length} 篇</span>
           </div>
-        );
-      })}
+          <div className="book-grid">
+            {g.posts.map((p) => (
+              <BookCard key={p.slug} post={p} />
+            ))}
+          </div>
+        </section>
+      ))}
     </div>
   );
 }

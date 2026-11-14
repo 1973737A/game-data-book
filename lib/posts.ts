@@ -19,6 +19,12 @@ export interface Post extends PostMeta {
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "articles");
 
+/** frontmatter 里的裸日期会被 gray-matter 解析成 Date 对象，统一格式化成 yyyy-MM-dd */
+function fmtDate(d: unknown): string {
+  if (d instanceof Date) return d.toISOString().slice(0, 10);
+  return d ? String(d) : "";
+}
+
 function parseFile(fileName: string): Post | null {
   const slug = fileName.replace(/\.md$/, "");
   const raw = fs.readFileSync(path.join(CONTENT_DIR, fileName), "utf-8");
@@ -28,7 +34,7 @@ function parseFile(fileName: string): Post | null {
     title: data.title ?? slug,
     series: data.series ?? "未分组",
     order: data.order ?? 99,
-    date: (data.date ?? "").toString(),
+    date: fmtDate(data.date),
     description: data.description ?? "",
     tags: data.tags ?? [],
     featured: data.featured ?? false,
@@ -68,13 +74,13 @@ export function getPostBySlug(slug: string): Post | undefined {
   return getAllPosts().find((p) => p.slug === slug);
 }
 
-/** 系列对应的封面渐变色（无真实图片时的装饰色块） */
-export const SERIES_THEMES: Record<string, { gradient: string; icon: string }> = {
-  "01 SQL 实战基础": { gradient: "linear-gradient(135deg,#f6d365,#fda085)", icon: "SQL" },
-  "02 指标体系": { gradient: "linear-gradient(135deg,#a1c4fd,#c2e9fb)", icon: "KPI" },
-  "03 分析方法论": { gradient: "linear-gradient(135deg,#d4fc79,#96e6a1)", icon: "ANA" },
+/** 系列对应的封面装饰主题（暖/冷/清新三色带） */
+export const SERIES_THEMES: Record<string, { cls: string }> = {
+  "01 检索原理": { cls: "theme-warm" },
+  "02 知识组织": { cls: "theme-cool" },
+  "03 实战轨迹": { cls: "theme-fresh" },
 };
 
 export function seriesTheme(series: string) {
-  return SERIES_THEMES[series] ?? { gradient: "linear-gradient(135deg,#e0c3fc,#8ec5fc)", icon: "NOTE" };
+  return SERIES_THEMES[series] ?? { cls: "" };
 }
