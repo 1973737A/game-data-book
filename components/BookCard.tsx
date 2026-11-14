@@ -76,7 +76,7 @@ export default function BookCard({
     <Link href={`/articles/${post.slug}`} className="book-card">
       <div className={`book-cover ${theme.cls}`}>
         <div className="cover-inner">
-          {showSeries && <div className="cover-series">{post.series.slice(3)}</div>}
+          {showSeries && <div className="cover-series">知识库</div>}
           <div className="cover-title">{post.title}</div>
           <div className="cover-spacer" />
           <CoverArt series={post.series} />

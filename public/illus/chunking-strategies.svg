@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 250" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="820" height="250" fill="#fffdf9" rx="14"/>
+  <text x="410" y="38" font-size="18" font-weight="700" fill="#262421" text-anchor="middle">文档分块三策略</text>
+  <!-- 原始文档条 -->
+  <rect x="60" y="58" width="700" height="26" rx="6" fill="#f2e8d9" stroke="#d8d0c1"/>
+  <text x="410" y="76" font-size="12.5" fill="#6e685f" text-anchor="middle">原始文档（几千上万字，多个主题混在一起）</text>
+  <!-- 策略1 固定大小 -->
+  <g>
+    <rect x="60" y="106" width="160" height="18" rx="3" fill="#faf3e3" stroke="#a88438" stroke-width="1.6"/>
+    <rect x="226" y="106" width="160" height="18" rx="3" fill="#faf3e3" stroke="#a88438" stroke-width="1.6"/>
+    <rect x="392" y="106" width="160" height="18" rx="3" fill="#faf3e3" stroke="#a88438" stroke-width="1.6"/>
+    <rect x="558" y="106" width="160" height="18" rx="3" fill="#faf3e3" stroke="#a88438" stroke-width="1.6"/>
+    <rect x="216" y="103" width="14" height="24" fill="#f6d365" opacity=".55" rx="2"/>
+    <rect x="382" y="103" width="14" height="24" fill="#f6d365" opacity=".55" rx="2"/>
+    <text x="240" y="150" font-size="14.5" font-weight="650" fill="#262421" text-anchor="middle">① 固定大小</text>
+    <text x="240" y="170" font-size="12.5" fill="#6e685f" text-anchor="middle">等宽切 + 重叠（黄块）</text>
+    <text x="240" y="188" font-size="12.5" fill="#6e685f" text-anchor="middle">简单可预测 · 适合日志</text>
+  </g>
+  <!-- 策略2 递归结构 -->
+  <g>
+    <rect x="60" y="206" width="300" height="24" rx="4" fill="#eef0e6" stroke="#8a9a6b" stroke-width="1.8"/>
+    <text x="130" y="223" font-size="12" fill="#57534c" text-anchor="middle">第 1 点</text>
+    <rect x="60" y="206" width="140" height="24" rx="4" fill="none" stroke="#a88438" stroke-width="1.8"/>
+    <text x="330" y="223" font-size="12" fill="#57534c" text-anchor="middle">第 2 点（太长，再按句切）</text>
+    <line x1="200" y1="206" x2="200" y2="230" stroke="#d8d0c1" stroke-width="1.5"/>
+    <text x="240" y="198" font-size="0"> </text>
+  </g>
+  <!-- 策略2 标注 -->
+  <g transform="translate(0,0)">
+    <text x="480" y="150" font-size="14.5" font-weight="650" fill="#262421">② 递归字符切分</text>
+    <text x="480" y="170" font-size="12.5" fill="#6e685f">先段落 → 太长按句子 → 再按字符</text>
+    <text x="480" y="188" font-size="12.5" fill="#6e685f">保留语义单元 · 默认推荐（飞书文档适用）</text>
+    <text x="480" y="218" font-size="14.5" font-weight="650" fill="#262421">③ 语义分块：相邻句相似度骤降处切</text>
+    <text x="480" y="238" font-size="12.5" fill="#6e685f">主题最纯 · 成本高 · 核心库选用</text>
+  </g>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 230" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="820" height="230" fill="#fffdf9" rx="14"/>
+  <text x="410" y="40" font-size="18" font-weight="700" fill="#262421" text-anchor="middle">117 秒的完整轨迹（网页端实录）</text>
+  <!-- 时间轴 -->
+  <line x1="60" y1="120" x2="760" y2="120" stroke="#d8d0c1" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Step 1 -->
+  <g>
+    <circle cx="130" cy="120" r="10" fill="#a88438"/>
+    <text x="130" y="86" font-size="15" font-weight="700" fill="#262421" text-anchor="middle">Step 1</text>
+    <text x="130" y="150" font-size="13.5" fill="#57534c" text-anchor="middle">search_knowledge ×2</text>
+    <text x="130" y="170" font-size="12.5" fill="#6e685f" text-anchor="middle">两路并行取 top-k</text>
+    <text x="130" y="188" font-size="12.5" fill="#6e685f" text-anchor="middle">"检索 β2 与 β1 对比"</text>
+  </g>
+  <!-- Step 2 -->
+  <g>
+    <circle cx="410" cy="120" r="10" fill="#a88438"/>
+    <text x="410" y="86" font-size="15" font-weight="700" fill="#262421" text-anchor="middle">Step 2</text>
+    <text x="410" y="150" font-size="13.5" fill="#57534c" text-anchor="middle">read_document ×2</text>
+    <text x="410" y="170" font-size="12.5" fill="#6e685f" text-anchor="middle">整读《β2 次日报告》</text>
+    <text x="410" y="188" font-size="12.5" fill="#6e685f" text-anchor="middle">《七日复盘》核实</text>
+  </g>
+  <!-- Step 3 -->
+  <g>
+    <circle cx="690" cy="120" r="10" fill="#b0714a"/>
+    <text x="690" y="86" font-size="15" font-weight="700" fill="#262421" text-anchor="middle">Step 3</text>
+    <text x="690" y="150" font-size="13.5" fill="#57534c" text-anchor="middle">整理作答</text>
+    <text x="690" y="170" font-size="12.5" fill="#6e685f" text-anchor="middle">9 个 chunk 引用</text>
+    <text x="690" y="188" font-size="12.5" fill="#6e685f" text-anchor="middle">+ 2 张原文截图</text>
+  </g>
+  <!-- 箭头弧线 -->
+  <path d="M150 100 C 240 60, 300 60, 390 100" fill="none" stroke="#c9b98e" stroke-width="2" stroke-dasharray="5 4"/>
+  <path d="M430 100 C 520 60, 580 60, 670 100" fill="none" stroke="#c9b98e" stroke-width="2" stroke-dasharray="5 4"/>
+  <!-- 底部指标 -->
+  <g font-size="13" fill="#a88438" font-weight="650" text-anchor="middle">
+    <text x="240" y="222">⏱ 117 秒</text>
+    <text x="440" y="222">消耗 74,516 tokens</text>
+    <text x="640" y="222">缓存命中 37,440</text>
+  </g>
+</svg>

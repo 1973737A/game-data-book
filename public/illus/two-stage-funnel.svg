@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+  <rect width="820" height="260" fill="#fffdf9" rx="14"/>
+  <text x="410" y="40" font-size="18" font-weight="700" fill="#262421" text-anchor="middle">两阶段漏斗：粗筛求快，精排求准</text>
+  <!-- 第一层：两路 -->
+  <g stroke-linejoin="round">
+    <rect x="130" y="62" width="240" height="44" rx="10" fill="#faf3e3" stroke="#a88438" stroke-width="2"/>
+    <rect x="450" y="62" width="240" height="44" rx="10" fill="#eef0e6" stroke="#8a9a6b" stroke-width="2"/>
+  </g>
+  <text x="250" y="90" font-size="15" fill="#262421" text-anchor="middle" font-weight="650">向量路（余弦）× 250</text>
+  <text x="570" y="90" font-size="15" fill="#262421" text-anchor="middle" font-weight="650">关键词路（BM25）× 250</text>
+  <!-- 收口到融合 -->
+  <path d="M250 106 L330 140 L490 140 L570 106" fill="none" stroke="#c9b98e" stroke-width="2" stroke-dasharray="5 4"/>
+  <!-- 融合层 -->
+  <rect x="290" y="140" width="240" height="44" rx="10" fill="#f6ead2" stroke="#a88438" stroke-width="2"/>
+  <text x="410" y="168" font-size="15" fill="#262421" text-anchor="middle" font-weight="650">RRF 融合 → 截断 50</text>
+  <line x1="410" y1="184" x2="410" y2="204" stroke="#a88438" stroke-width="2.5"/>
+  <path d="M404 200 L410 212 L416 200 Z" fill="#a88438"/>
+  <!-- 精排层 -->
+  <rect x="290" y="212" width="240" height="40" rx="10" fill="#f8e3d8" stroke="#b0714a" stroke-width="2"/>
+  <text x="410" y="238" font-size="15" fill="#262421" text-anchor="middle" font-weight="650">跨编码器精排 → Top 10</text>
+  <!-- 侧标注 -->
+  <g font-size="13" fill="#6e685f">
+    <text x="40" y="88">快</text>
+    <text x="40" y="238">准</text>
+    <text x="700" y="90">双编码器</text>
+    <text x="700" y="168">只看排名</text>
+    <text x="700" y="238">逐词交互</text>
+  </g>
+</svg>
